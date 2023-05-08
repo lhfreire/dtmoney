@@ -21,10 +21,10 @@ createServer({
         },
         {
           id: 2,
-          title: 'Job Backend',
-          type: 'deposit',
+          title: 'Aluguel',
+          type: 'withdraw',
           category: 'Dev',
-          amount: 8000,
+          amount: 1000,
           createdAt: new Date('2023-05-12 16:30:00'),
         }
       ],
