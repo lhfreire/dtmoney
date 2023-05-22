@@ -8,7 +8,15 @@ import { TransactionsContext } from '../../TransactionsContext';
 
 export function Summary() {
 
-    const data = useContext(TransactionsContext);
+    const { transactions } = useContext(TransactionsContext);
+
+    const totalDeposits = transactions.reduce((acc, transaction) => {
+        if (transaction.type == 'deposit') {
+            return acc + transaction.amount;
+        }
+
+        return acc;
+    }, 0);
 
     return (
         <Container>
@@ -17,7 +25,7 @@ export function Summary() {
                     <p>Entradas</p>
                     <img src={incomeImg} alt="Entradas" />
                 </header>
-                <strong>R$1000,00</strong>
+                <strong>{totalDeposits}</strong>
             </div>
             <div>
                 <header>
